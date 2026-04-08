@@ -1,0 +1,18 @@
+### RestClient VScode extension to quickly goto links to test my http requests
+GET http://localhost:3000/subscribers
+###
+GET http://localhost:3000/subscribers/69d6ba1c4a83ed172f5ff151
+###
+
+### create a new object with specified data (data is JSON)
+# MUST BE SPACE INBETWEEN HTTP REQUEST AND JSON, also must tell it to read json
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+    "name": "pibby2",
+    "downloadingFrom": "bread"
+}
+
+###
+DELETE http://localhost:3000/subscribers/69d6ba1c4a83ed172f5ff151
