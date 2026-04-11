@@ -1,4 +1,4 @@
-//ROUTES AND CONTROLLERS
+//CONTROLLERS (FUNCTIONS THAT ARE GONNA BE CALLED LATER IN EXPRESS ROUTES)
 import express from "express";
 const router = express.Router()
 import Subscriber from '../models/subscriber.js';

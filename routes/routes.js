@@ -1,6 +1,7 @@
 import * as controllers from "../controllers/controllers.js";
 import express from "express";
-
+//ROUTES 
+//they tell express call these funcs when getting a http request (the method names) at a specified page (link)
 export default (app) => {
     let router = express.Router();
 

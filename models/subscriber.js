@@ -1,4 +1,4 @@
-//MODEL DEFINITION
+//MODEL(ENTITY) DEFINITION
 // (mongoose definines each type entity as a model(json aka javascript object notation))
 //this file defines a subscriber
 import mongoose from "mongoose";
