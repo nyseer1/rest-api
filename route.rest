@@ -1,17 +1,26 @@
 ### RestClient VScode extension to quickly goto links to test my http requests
 ### (frontend has to fetch these)
 
+
 ### GET (ALL)
 GET http://localhost:3000/controllers
 Content-Type: application/json
 
 {
-    "name": "Pibby"
+    "name": ""
+}
+
+### GET (ALL) (THAT MATCH THE SPECIFIED NAME REGEX)
+GET http://localhost:3000/controllers
+Content-Type: application/json
+
+{
+    "name": "rad"
 }
 
 
 ### GET (ONE) :ID
-GET http://localhost:3000/controllers/69d96f20a6ac6d821b3613e9
+GET http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
 ###
 
 ### CREATE (a new object with specified data (data is JSON))
@@ -25,21 +34,14 @@ Content-Type: application/json
 }
 
 ### DELETE (ONE) :ID
-DELETE http://localhost:3000/controllers/69d6ba1c4a83ed172f5ff151
+DELETE http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
 
 ### DELETE ALL
 DELETE http://localhost:3000/controllers/
 
-### FIND BY CRITERIA
-GET http://localhost:3000/controllers/
-Content-Type: application/json
-
-{
-    "name": "pibby"
-}
-
-### UPDATE (ONE) needs req.body so it uses json to get the updated info to send to the server
-PATCH http://localhost:3000/subscribers/69d96f20a6ac6d821b3613e9
+### UPDATE(PATCH) (ONE) needs req.body so it uses json to get the updated info to send to the server
+### patch means update these properties, keep the rest as is. Put means remove all the props' values and replace with these
+PATCH http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
 Content-Type: application/json
 
 {

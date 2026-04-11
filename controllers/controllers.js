@@ -5,7 +5,7 @@ import Subscriber from '../models/subscriber.js';
 // const subscriber = require('../models/subscriber')
 //res response, req request
 
-
+/*
 //GET (ALL) (OR BY NAME REGEX) lowercase i means ignore case
 router.get('/', async (req, res) => {
     try {
@@ -112,11 +112,11 @@ router.get('/verified', async (req, res) => {
 })
 
 
-/*
-MIDDLEWARE
-instead of rewriting code where we need to get the id first, lets use middleware to reuse it
-next is the callback (function passed into a function to be called later)
-*/
+
+
+//MIDDLEWARE FUNCTION
+//instead of rewriting code where we need to get the id first, call middleware func to reuse it
+//next is the callback (function passed into a function to be called later)
 async function getSubscriber(req, res, next) {
     let subscriber
     try { //the code that will be used by multiple other functions to get user from their id
@@ -128,6 +128,8 @@ async function getSubscriber(req, res, next) {
     res.subscriber = subscriber
     next() //tells it move to next piece (another middleware or the iriginal request)
 }
+
+*/
 
 //TODO WRITE EVERY FUNCTION AS AN EXPORT
 
@@ -154,9 +156,20 @@ export const getAll = async (req, res) => {
 }
 
 //GET (ONE : ID) id is needed so it is routed into the link as well
-export const getOne = async (req, res) => { //getSubscriber finds user by their id then this func runs
-    console.log('get (read) request was made here for id: ' + req.params.id)
+export const getOne = (req, res) => { //getSubscriber finds user by their id then this func runs
+    console.log("Data received from middleware:" + res.subscriber);
     res.json(res.subscriber)
+}
+
+//UPDATE (ONE : ID)
+export const updateOne = async (req, res) => {
+    console.log("updating entity now")
+    try { // console.log('patch (update) request was made here')
+        await res.subscriber.updateOne(req.body);
+        res.send({ message: `${res.subscriber.name} was updated successfully` });
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 }
 
 //CREATE (ONE)
@@ -185,16 +198,44 @@ export const createOne = async (req, res) => {
     }
 }
 
-//UPDATE (ONE)
-router.patch('/:id', getSubscriber, async (req, res) => {
-    try { // console.log('patch (update) request was made here')
-        await res.subscriber.updateOne(req.body);
-        // res.json({ message: "updated subscriber successfully" })
-        res.json(res.subscriber);
+//DELETE (ONE : ID)
+export const deleteOne = async (req, res) => {
+    console.log('delete (one) request was made here for id: ' + req.params.id)
+    try {
+        await res.subscriber.deleteOne()
+        res.send({ message: `${res.subscriber.name} was deleted successfully` });
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
-})
+}
+
+//DELETE (ALL)
+export const deleteAll = async (req, res) => {
+    console.log('delete (all) request was made here')
+    try {
+        const result = await Subscriber.deleteMany({})
+        res.json({
+            message: "Successfully deleted " + result.deletedCount + " subscribers.",
+            deletedCount: result.deletedCount
+        })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+}
+
+//FIND (passes specific criteria, ex: verified)
+export const findVerified = async (req, res) => {
+    console.log('find request for verified users made here')
+    try {
+        const result = Subscriber.find({ verified: true }).exec();
+        // res.json({
+        //     message: "Found " + result.size + " subscribers.",
+        // })
+        res.json(result)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+}
 
 /*
 MIDDLEWARE
@@ -202,15 +243,17 @@ instead of rewriting code where we need to get the id first, lets use middleware
 next is the callback (function passed into a function to be called later)
 */
 export const getEntityByID = async (req, res, next) => {
-    // let subscriber
+    // console.log("starting get entity by id")
+
     try { //the code that will be used by multiple other functions to get user from their id
-        subscriber = await Subscriber.findById(req.params.id)
-        if (subscriber == null) return res.status(404).json({ message: "user not found" })
+        const searchresult = await Subscriber.findById(req.params.id)
+        if (searchresult == null) return res.status(404).json({ message: "user not found" })
+        //res value passed to the function that called this as a middleware
+        res.subscriber = searchresult
+        console.log("done getting id")
     } catch (err) { return res.status(500).json({ message: err.message }) }
 
-    //res value passed to the function that called this as a middleware
-    res.subscriber = subscriber
-    next() //tells it move to next piece (another middleware or the iriginal request)
+    next() //tells it move to ne xt piece (another middleware or the iriginal request)
 }
 
 

@@ -4,26 +4,27 @@ import express from "express";
 export default (app) => {
     let router = express.Router();
 
-    // Create a new Tutorial
-    router.post("/", controllers.getEntityByID, controllers.getAll);
+    // create new entity
+    router.post("/", controllers.createOne);
 
-    // Retrieve all Tutorials
+    // get all entities
     router.get("/", controllers.getAll);
 
-    // Retrieve a single Tutorial with id
-    router.get("/:id", controllers.getEntityByID, controllers);
+    // get one entity with id (middleware getEntityByID runs first and gives the user to the 2nd function)
+    router.get("/:id", controllers.getEntityByID, controllers.getOne);
 
-    // Update a Tutorial with id
-    router.put("/:id", tutorials.update);
+    // update one entity with id
+    router.patch("/:id", controllers.getEntityByID, controllers.updateOne);
 
-    // Delete a Tutorial with id
-    router.delete("/:id", tutorials.deleteOne);
+    // delete one with id
+    router.delete("/:id", controllers.getEntityByID, controllers.deleteOne);
 
-    // Delete all Tutorials
-    router.delete("/", tutorials.deleteAll);
+    // delete all
+    router.delete("/", controllers.deleteAll);
 
-    // Find all published Tutorials
-    router.get("/published", tutorials.findAllPublished);
+    // find all by filter
+    router.get("/verified", controllers.findVerified);
 
-    app.use("/api/tutorials", router);
+    //tells express to use /controller as its default path for all of these routes
+    app.use("/controllers", router);
 };
