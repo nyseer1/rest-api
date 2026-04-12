@@ -7,6 +7,7 @@ import Listing from '../models/listing.js';
 
 //GET (ALL) (OR BY NAME REGEX) lowercase i means ignore case
 export const getAll = async (req, res) => {
+    console.log('get all request was made here');
     try {
         const name = req.body.name;
         const condition = { name: new RegExp(name, 'i') }; //make this a fast anchored regex if # of entities reaches 100k-1M - new RegExp('^' + name) uses index to go straight to elements that start with name

@@ -9,8 +9,8 @@ import { useState } from "react";
 
 export default function AddListing() {
 
-    const [name, setName] = useState('');
-    const [sellerName, setSellerName] = useState('');
+    const [name, setName] = useState('Cat-Nip');
+    const [sellerName, setSellerName] = useState('Cat-Food-Co');
     const [price, setPrice] = useState(1.00);
     const [verified, setVerified] = useState(false);
     const [posted, setPosted] = useState(false); //check if listing was posted
@@ -91,7 +91,7 @@ export default function AddListing() {
                             onClick={saveListing}
                         >
                             Submit
-                        //TODO FORM VALIDATION AND MAKE SURE ROUTES ALIGN WITH AXIOS ROUTES. (CORS HEADER 'Access-Control-Allow-Origin' missing)
+
                         </Button>
                     </div>
                 )}

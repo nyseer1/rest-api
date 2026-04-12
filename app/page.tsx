@@ -40,7 +40,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 component="a"
-                href="/add"
+                href="/api/listings/add"
                 color="dark"
               >
                 Add Listing

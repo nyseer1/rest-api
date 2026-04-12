@@ -27,5 +27,5 @@ export default (app) => {
     router.get("/verified", controllers.findVerified);
 
     //tells express to use /controller as its default path for all of these routes
-    app.use("/api", router);
+    app.use("/api/listings", router);
 };
