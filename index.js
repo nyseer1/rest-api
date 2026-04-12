@@ -1,7 +1,7 @@
 //connection to mongodb (or any) db server
-
 import routes from "./routes/routes.js";
 import dotenv from 'dotenv';
+import cors from 'cors'; //to let client recieve info from server
 dotenv.config();
 import express from 'express';
 const app = express()
@@ -16,6 +16,11 @@ db.on('error', (error) => console.log(error))
 db.once('open', () => console.log("Connected to database!"))
 
 app.use(express.json())
+
+
+app.use(cors({
+    origin: 'http://localhost:3001' // your frontend URL
+}));
 
 //routes
 routes(app);
