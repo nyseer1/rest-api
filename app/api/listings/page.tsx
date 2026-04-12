@@ -65,62 +65,7 @@ export default function HomePage() {
                             <h1>Featured Listings:</h1>
                         </GridCol>
 
-                        <GridCol span={{ base: 10, md: 3, lg: 3 }} />
-                        <GridCol span={{ base: 10, md: 3, lg: 3 }} />
 
-                        <GridCol span={{ base: 12, md: 4, lg: 4 }}>
-                            <h2>Dynamic XY Web Synth Sequencer</h2>
-                            <br />
-                            <h3>High-performance analog-modeled synthesizer developed using the Web Audio API and Tone.js, featuring customizable oscillators, ADSR envelopes, resonant filters and a 16 step sequencer.</h3>
-                            <br />
-                            <br />
-                            <ul className="list-disc p-8">
-                                <li>Optimized UI/UX for low-latency interaction, efficient use of  DOM rendering practices to maintain low latency  while processing complex audio graphs.</li>
-                                <li>Significantly reduced initial webpage load time by implementing lazy loading and component memoization.</li>
-                                <li>Implemented state management to handle real-time parameter modulation without audio artifacts.</li>
-                                <li>Architected a precise 16-step sequencer with a global clock sync, ensuring low-latency playback and sample-accurate timing across multiple browser environments.</li>
-                            </ul>
-
-                            <br />
-                            <br />
-
-
-
-
-
-
-
-
-                        </GridCol>
-                        <GridCol span={{ base: 12, md: 3, lg: 3 }}>
-                            <h1>picture here</h1>
-                            <br />
-                            <br />
-                            <br />
-                            {/* tailwind qquick way to add padding */}
-                            <Group className="p-8">
-                                <Button
-                                    size="md"
-                                    component="a"
-                                    href="/synth"
-                                    color="lightseagreen"
-                                >
-                                    Try it Now!
-                                </Button>
-                                <Button size="md" component="a" href="/projects" color="dark">
-                                    Github
-                                    <BsBoxArrowUpRight style={{ padding: '3px', }} />
-                                </Button>
-                                <Button
-                                    size="md"
-                                    component="a"
-                                    href="#home-section"
-                                    variant="default"
-                                >
-                                    Back To Top
-                                </Button>
-                            </Group>
-                        </GridCol>
                         {/* button group */}
                     </Grid>
 
