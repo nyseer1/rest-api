@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { mantineHtmlProps } from "@mantine/core"; //If your application has server side rendering, add ColorSchemeScript to the <head /> of your application and spread mantineHtmlProps on the <html /> element to avoid seeing a hydration warning:
+import { HeaderSimple } from "@/components/HeaderSimple";
+import { ModalsProvider } from "@mantine/modals";
+import { MantineProvider } from "@mantine/core";
+
+import "@mantine/core/styles.css";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,11 +29,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" {...mantineHtmlProps}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <MantineProvider>
+          {/* header that is rendered client side so it can use hooks */}
+          <HeaderSimple />
+          {/* this is where all the pages get rendered */}
+          <ModalsProvider>{children}</ModalsProvider>
+        </MantineProvider>
+      </body>
     </html>
   );
 }
