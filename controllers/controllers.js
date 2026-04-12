@@ -51,20 +51,15 @@ export const createOne = async (req, res) => {
     const nameCheck = await Listing.find();
     if (nameCheck.size == 1) res.status(400).json({ message: 'Username already in use :(' });
 
-    console.log("attempting create one now1")
     //creates new js object (using mongoose object model)
     const listing = new Listing({
         name: req.body.name,
         sellerName: req.body.sellerName,
         price: req.body.price,
     })
-    console.log("attempting create one now2")
-    // console.log('post (create) request was made here')
 
     //save it to the db
-
     try {
-
         //.save tries to save the object to the db, if successful it is saved in the variable
         const newListing = await listing.save()
         //201 means successfully created object

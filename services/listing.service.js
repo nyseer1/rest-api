@@ -8,39 +8,39 @@ const http = axios.create({
 });
 
 const getAll = () => {
-    return http.get("/tutorials");
+    return http.get("/listings");
 };
 
-const get = (id) => {
-    return http.get(`/tutorials/${id}`);
+const getOne = (id) => {
+    return http.get(`/listings/${id}`);
 };
 
 const create = (data) => {
-    return http.post("/tutorials", data);
+    return http.post("/listings", data);
 };
 
-const update = (id, data) => {
-    return http.put(`/tutorials/${id}`, data);
+const updateOne = (id, data) => {
+    return http.put(`/listings/${id}`, data);
 };
 
-const remove = (id) => {
-    return http.delete(`/tutorials/${id}`);
+const deleteOne = (id) => {
+    return http.delete(`/listings/${id}`);
 };
 
-const removeAll = () => {
-    return http.delete("/tutorials");
+const deleteAll = () => {
+    return http.delete("/listings");
 };
 
-const findByTitle = (title) => {
-    return http.get(`/tutorials?title=${title}`);
+const getOneByName = (name) => {
+    return http.get(`/listings?name=${name}`);
 };
 
 export default {
     getAll,
-    get,
+    getOne,
     create,
-    update,
-    remove,
-    removeAll,
-    findByTitle,
+    updateOne,
+    deleteOne,
+    deleteAll,
+    getOneByName,
 };
