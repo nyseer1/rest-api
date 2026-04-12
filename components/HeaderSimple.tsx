@@ -6,15 +6,13 @@ import { useHeadroom } from "@mantine/hooks";
 import classes from "./HeaderSimple.module.css";
 import Link from "next/link";
 
-import { BsCartFill, BsCaretRightFill } from "react-icons/bs";
+import { FaShoppingCart, FaSearch, FaChevronRight } from "react-icons/fa";
 import { useState } from "react";
 
 const links = [
   { link: "/", label: "Home" },
-  { link: "/#about-section", label: "About Me" },
-  { link: "/#project-section", label: "Projects" },
-  { link: "/#skills-section", label: "Skills" },
-  { link: "/#contact-section", label: "Hire Me" },
+  // { link: "/#project-section", label: "Projects" },
+  // { link: "/#skills-section", label: "Skills" },
 ];
 
 const theme = createTheme({
@@ -62,7 +60,7 @@ export function HeaderSimple() {
                     href="/"
                   >
                     <Title>
-                      Nyseer<span style={{ color: "blue" }}>.</span>
+                      Shopping<span style={{ color: "blue" }}>.</span>
                     </Title>
                   </Button>
                 </MantineProvider>
@@ -72,6 +70,8 @@ export function HeaderSimple() {
               <Group gap={5} visibleFrom="lg" justify="flex-end">
                 {/* if home, put jump/anchor link. else add home directory to links */}
                 {items}
+                {/* <Link href="/controllers" className={classes.link} key='synth' >Search<FaSearch /></Link> */}
+                <Link href="/controllers" className={classes.link} key='synth' >Cart <FaShoppingCart /></Link>
               </Group>
 
               {/* Menu burger - only visible on size smaller than specified screen size in hiddenFrom= */}
@@ -100,7 +100,7 @@ export function HeaderSimple() {
                   <Menu.Divider />
 
                   <Menu.Label>Projects</Menu.Label>
-                  <Menu.Item leftSection={<BsCaretRightFill />}>
+                  <Menu.Item leftSection={<FaChevronRight />}>
                     <Link href="/synth" className={classes.link} key='synth'>Synth</Link>
                   </Menu.Item>
                   {/* <Menu.Item leftSection={<IconPhoto size={14} />}>

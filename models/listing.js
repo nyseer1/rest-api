@@ -9,10 +9,26 @@ const subSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    subscribedToChannel: {
-        type: [String],
+    sellerName: {
+        type: String,
         required: true,
     },
+    // sellerID: {
+    //     type: mongoose.ObjectId,
+    //     required: true,
+    // },
+    price: {
+        type: mongoose.Decimal128,
+        min: 1.00,
+        max: 1000000.00,
+        required: true,
+        default: 0.00,
+    },
+    // subscribedToChannel: {
+    //     type: [String],
+    //     required: true,
+    //     default: []
+    // },
     creationDate: {
         type: Date,
         required: true,
@@ -26,4 +42,4 @@ const subSchema = new mongoose.Schema({
     }
 })
 //exports the mongoose schema to be used in other files
-export default mongoose.model('Subscriber', subSchema);
+export default mongoose.model('Listing', subSchema);

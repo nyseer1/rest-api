@@ -3,7 +3,7 @@
 
 
 ### GET (ALL)
-GET http://localhost:3000/controllers
+GET http://localhost:3000/api
 Content-Type: application/json
 
 {
@@ -11,37 +11,38 @@ Content-Type: application/json
 }
 
 ### GET (ALL) (THAT MATCH THE SPECIFIED NAME REGEX)
-GET http://localhost:3000/controllers
+GET http://localhost:3000/api
 Content-Type: application/json
 
 {
-    "name": "rad"
+    "name": "cat"
 }
 
 
 ### GET (ONE) :ID
-GET http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
+GET http://localhost:3000/api/69dabf3a36df2232b1a2551f
 ###
 
 ### CREATE (a new object with specified data (data is JSON))
 # MUST BE SPACE BETWEEN HTTP REQUEST AND JSON BODY (req.body), also must tell it to read json
-POST http://localhost:3000/controllers
+POST http://localhost:3000/api
 Content-Type: application/json
 
 {
-    "name": "pibby",
-    "subscribedToChannel": ["bread","pim", "ooby"]
+    "name": "Cat-Nip",
+    "sellerName": "John Arbuckle",
+    "price": "20.00"
 }
 
 ### DELETE (ONE) :ID
-DELETE http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
+DELETE http://localhost:3000/api/69dabf3a36df2232b1a2551f
 
 ### DELETE ALL
-DELETE http://localhost:3000/controllers/
+DELETE http://localhost:3000/api/
 
 ### UPDATE(PATCH) (ONE) needs req.body so it uses json to get the updated info to send to the server
 ### patch means update these properties, keep the rest as is. Put means remove all the props' values and replace with these
-PATCH http://localhost:3000/controllers/69dabf3a36df2232b1a2551f
+PATCH http://localhost:3000/api/69dabf3a36df2232b1a2551f
 Content-Type: application/json
 
 {

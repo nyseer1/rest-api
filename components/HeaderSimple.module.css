@@ -13,11 +13,16 @@
 }
 
 .link {
-  display: block;
+  /* or 'flex' if you want it to be a block-level flex container */
+  display: inline-flex;
+  /* vertically centers text and icon */
+  align-items: center;
+  /* adds space between name and the icon */
+  gap: 0.5rem;
+  text-decoration: none;
   line-height: 1;
   padding: 8px 12px;
   border-radius: var(--mantine-radius-sm);
-  text-decoration: none;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
   font-size: var(--mantine-font-size-xl);
   font-weight: 500;

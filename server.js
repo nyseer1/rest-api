@@ -21,7 +21,7 @@ app.use(express.json())
 routes(app);
 
 //routes the js file to the page. express is using the imported crud functions as a middleware for every page(can be a series of middleware)
-const page = '/controllers';
+const page = '/api';
 import middleware from './controllers/controllers.js';
 app.use(page, middleware)
 
