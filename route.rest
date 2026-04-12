@@ -4,11 +4,7 @@
 
 ### GET (ALL)
 GET http://localhost:3000/api/listings
-Content-Type: application/json
 
-{
-    "name": ""
-}
 
 ### GET (ALL) (THAT MATCH THE SPECIFIED NAME REGEX)
 GET http://localhost:3000/api/listings
