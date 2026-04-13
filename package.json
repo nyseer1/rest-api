@@ -17,25 +17,26 @@
     "@mantine/hooks": "^9.0.1",
     "@mantine/modals": "^9.0.1",
     "@tabler/icons-react": "^3.41.1",
+    "@tailwindcss/postcss": "^4.2.2",
     "axios": "^1.15.0",
     "cors": "^2.8.6",
     "dayjs": "^1.11.20",
     "express": "^5.2.1",
     "mongoose": "^9.4.1",
     "next": "^16.2.3",
+    "postcss": "^8.5.9",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-icons": "^5.6.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.4.1",
     "nodemon": "^3.1.14",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5"
   },
   "type": "module"
