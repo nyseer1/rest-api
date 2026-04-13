@@ -1,8 +1,8 @@
-//CONTROLLERS (FUNCTIONS THAT ARE GONNA BE CALLED LATER IN EXPRESS ROUTES) (here is where the mongodb connection is started) res-response req-request
+//CONTROLLERS (FUNCTIONS THAT ARE GONNA BE CALLED LATER IN EXPRESS ROUTES) res response, req request
 import express from "express";
 const router = express.Router()
 import Listing from '../models/listing.js';
-import { connectToDatabase } from "../db.js";
+import dbConnect from "../lib/dbConnect.js";
 
 //GET (ALL) (OR BY NAME REGEX) lowercase i means ignore case
 export const getAll = async (req, res) => {
@@ -13,7 +13,6 @@ export const getAll = async (req, res) => {
         const condition = { name: new RegExp(name, 'i') }; //make this a fast anchored regex if # of entities reaches 100k-1M - new RegExp('^' + name) uses index to go straight to elements that start with name
         //if condition exists, add that condition to the filter. else just get all
         if (name != "") {
-            const { db } = await connectToDatabase(); // if a connection was already made, it will be cached and reused
             const result = await Listing.find(condition).exec()
             console.log(`get (filter by name: ${name} ) request was made here`); //must use backticks 
             res.status(200).json(result);
@@ -112,10 +111,24 @@ export const findVerified = async (req, res) => {
 }
 
 /*
-MIDDLEWARE
-instead of rewriting code where we need to get the id first, lets use middleware to reuse it
+MIDDLEWARE ----------------------------------------------------------------------------
+using middleware to reuse code that will be run often.
 next is the callback (function passed into a function to be called later)
 */
+
+//db connection
+export const dbConnect = async () => {
+    try {
+        await dbConnect();
+    }
+    catch {
+        console.log('Failed to connect to server at dbConnect()')
+    }
+    next()
+
+}
+
+//reusing function to get an entity by their id so that the next function can access it
 export const getEntityByID = async (req, res, next) => {
     // console.log("starting get entity by id")
 
@@ -129,6 +142,7 @@ export const getEntityByID = async (req, res, next) => {
 
     next() //tells it move to ne xt piece (another middleware or the iriginal request)
 }
+
 
 
 export default router;

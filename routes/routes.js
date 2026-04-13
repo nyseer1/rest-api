@@ -6,25 +6,25 @@ export default (app) => {
     let router = express.Router();
 
     // create new entity
-    router.post("/", controllers.createOne);
+    router.post("/", controllers.dbConnect, controllers.createOne);
 
     // get all entities
-    router.get("/", controllers.getAll);
+    router.get("/", controllers.dbConnect, controllers.getAll);
 
     // get one entity with id (middleware getEntityByID runs first and gives the user to the 2nd function)
-    router.get("/:id", controllers.getEntityByID, controllers.getOne);
+    router.get("/:id", controllers.dbConnect, controllers.getEntityByID, controllers.getOne);
 
     // update one entity with id
-    router.patch("/:id", controllers.getEntityByID, controllers.updateOne);
+    router.patch("/:id", controllers.dbConnect, controllers.getEntityByID, controllers.updateOne);
 
     // delete one with id
-    router.delete("/:id", controllers.getEntityByID, controllers.deleteOne);
+    router.delete("/:id", controllers.dbConnect, controllers.getEntityByID, controllers.deleteOne);
 
     // delete all
-    router.delete("/", controllers.deleteAll);
+    router.delete("/", controllers.dbConnect, controllers.deleteAll);
 
     // find all by filter
-    router.get("/verified", controllers.findVerified);
+    router.get("/verified", controllers.dbConnect, controllers.findVerified);
 
     //tells express to use /controller as its default path for all of these routes
     app.use("/api/listings", router);
