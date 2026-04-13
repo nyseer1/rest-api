@@ -117,9 +117,10 @@ next is the callback (function passed into a function to be called later)
 */
 
 //db connection
-export const dbConnect = async () => {
+export const mongooseConnection = async (req, res, next) => {
     try {
         await dbConnect();
+        console.log("successfully connected to server")
     }
     catch {
         console.log('Failed to connect to server at dbConnect()')

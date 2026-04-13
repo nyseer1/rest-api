@@ -9,10 +9,6 @@ import mongoose from 'mongoose';
 const port = 3000;
 //dotenv file here, to hide any sensitive data in deployment
 
-//on database error, take function with error and print it
-db.on('error', (error) => console.log(error))
-db.once('open', () => console.log("Connected to database!"))
-
 app.use(express.json())
 //TODO I HAVE TO PROVIDE VERCEL WITH A ENV VARIABLE THAT SAYS NODE_ENV = 'production' OR ELSE THIS WONT WORK
 // cors allows frontend to recieve http responses for a specified url

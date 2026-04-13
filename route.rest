@@ -16,7 +16,7 @@ Content-Type: application/json
 
 
 ### GET (ONE) :ID
-GET http://localhost:3000/api/69db3bea2d9e686c2eb431f3
+GET http://localhost:3000/api/69dc136e86a0604c00c724ad
 ###
 
 ### CREATE (a new object with specified data (data is JSON))
@@ -31,7 +31,7 @@ Content-Type: application/json
 }
 
 ### DELETE (ONE) :ID
-DELETE http://localhost:3000/api/listings/69db3bea2d9e686c2eb431f3
+DELETE http://localhost:3000/api/listings/69dc136e86a0604c00c724ad
 
 ### DELETE ALL
 DELETE http://localhost:3000/api/listings
