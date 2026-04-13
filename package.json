@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "build": "next build",
-    "start": "next start",
+    "start": "node index.js",
     "next": "next dev",
     "lint": "biome check",
     "format": "biome format --write"

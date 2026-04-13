@@ -1,4 +1,4 @@
-//connection to mongodb (or any) db server
+//sets up express to handle backend logic including middlware and routing
 import routes from "./routes/routes.js";
 import dotenv from 'dotenv';
 import cors from 'cors'; //to let client recieve info from server
@@ -6,7 +6,8 @@ dotenv.config();
 import express from 'express';
 const app = express()
 import mongoose from 'mongoose';
-const port = 3000
+import { connectToDatabase } from "./db.js";
+const port = 3000;
 //dotenv file here, to hide any sensitive data in deployment
 mongoose.connect(process.env.DATABASE_URL)
 const db = mongoose.connection
@@ -17,21 +18,21 @@ db.once('open', () => console.log("Connected to database!"))
 
 app.use(express.json())
 
-
+// cors allows frontend to recieve http responses for a specified url
 app.use(cors({
-    origin: 'http://localhost:3001' // your frontend URL
+    origin: process.env.NODE_ENV === 'production'
+        ? 'https://https://nyseer-ecommerce-site.vercel.app/'  //if production then allow this url
+        : 'http://localhost:3001' //if local then allow this url
 }));
 
 //routes
-routes(app);
+routes(app); //imports and tells express to use the routes that i defined in routes.js file
 
-//routes the js file to the page. express is using the imported crud functions as a middleware for every page(can be a series of middleware)
+//routes the js file to the page. express is using the imported crud functions as a middleware for every page(can be a series of middleware with .use)
 const page = '/api';
-import middleware from './controllers/controllers.js';
-app.use(page, middleware)
+import httpRequestFunctions from './controllers/controllers.js';
+app.use(page, httpRequestFunctions)
 
-//connect to server and run the function ONCE on startup
-app.listen(port, () => {
-    console.log(`app listening on port ${port}`)
-})
 
+//export so i can use this on vercel
+export default app;
