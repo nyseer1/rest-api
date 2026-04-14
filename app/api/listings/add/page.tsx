@@ -17,7 +17,9 @@ export default function AddListing() {
     const data = { name, sellerName, price, verified };
 
     const saveListing = async () => {
-        //TODO FORM VALIDATION AND MAKE SURE ROUTES ALIGN WITH AXIOS ROUTES. (CORS HEADER 'Access-Control-Allow-Origin' missing)
+        //TODO FORM VALIDATION(https://vinejs.dev/docs/introduction) AND MAKE SURE ROUTES ALIGN WITH AXIOS ROUTES. (CORS HEADER 'Access-Control-Allow-Origin' missing)
+        //TODO ALSO USE MANTINE CARDS FOR EACH ENTITY LISTED USING A .MAP ON AN ARRAY OF ENTITIES. https://mantine.dev/core/card/
+        //TODO STUDY THIS MORE TOO https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
         //this console log shows in browser console since whole page is a client component. i might move this section to a different page if the whole page needs to be a svr component
         console.log('attempting saveListing')
         try {

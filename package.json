@@ -35,7 +35,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.4.1",
+    "install": "^0.13.0",
     "nodemon": "^3.1.14",
+    "npm": "^11.12.1",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
   },

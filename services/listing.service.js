@@ -1,7 +1,10 @@
 import axios from "axios";
+import dotenv from 'dotenv';
+const baseUrl = (process.env.NODE_ENV === 'production') ? "http://https://nyseer-ecommerce-site.vercel.app/api" : "http://localhost:3000/api";
 
 const http = axios.create({
-    baseURL: "http://localhost:3000/api",
+
+    baseURL: baseUrl,
     headers: {
         "Content-Type": "application/json",
     },
