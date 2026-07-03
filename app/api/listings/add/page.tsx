@@ -3,15 +3,14 @@
 // import Link from 'next/link';
 // import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
 import { Box, Button, Grid, GridCol, Group } from "@mantine/core";
+import { useEffect, useState } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import ListingService from "@/services/listing.service";
-import { useState } from "react";
 
 export default function AddListing() {
-
-    const [name, setName] = useState('Cat-Nip');
-    const [sellerName, setSellerName] = useState('Cat-Food-Co');
-    const [price, setPrice] = useState(1.00);
+    const [name, setName] = useState("Cat-Nip");
+    const [sellerName, setSellerName] = useState("Cat-Food-Co");
+    const [price, setPrice] = useState(1.0);
     const [verified, setVerified] = useState(false);
     const [posted, setPosted] = useState(false); //check if listing was posted
     const data = { name, sellerName, price, verified };
@@ -20,27 +19,25 @@ export default function AddListing() {
         //TODO FORM VALIDATION(https://vinejs.dev/docs/introduction) AND MAKE SURE ROUTES ALIGN WITH AXIOS ROUTES. (CORS HEADER 'Access-Control-Allow-Origin' missing)
         //TODO ALSO USE MANTINE CARDS FOR EACH ENTITY LISTED USING A .MAP ON AN ARRAY OF ENTITIES. https://mantine.dev/core/card/
         //TODO STUDY THIS MORE TOO https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
+
         //this console log shows in browser console since whole page is a client component. i might move this section to a different page if the whole page needs to be a svr component
-        console.log('attempting saveListing')
+        console.log("attempting saveListing");
         try {
-            const response = await ListingService.create(data);
+            const response = await ListingService.create();
             console.log(response.data);
             setPosted(true);
-        }
-        catch (e) {
+        } catch (e) {
             console.log(e);
         }
-    }
+    };
 
     const newListing = () => {
-        setName('');
-        setSellerName('');
-        setPrice(1.00);
+        setName("");
+        setSellerName("");
+        setPrice(1.0);
         setVerified(false);
         setPosted(false); //restart listing submission
-    }
-
-
+    };
 
     return (
         <>
@@ -48,22 +45,22 @@ export default function AddListing() {
             <div className="max-w-sm mx-auto p-4 bg-white rounded shadow">
                 {posted ? (
                     <div>
-                        <h4 className="font-bold text-green-600 mb-4">
-                            Tutorial submitted successfully!
-                        </h4>
-                        <button
+                        <h5 className="font-bold text-green-600 mb-2">
+                            Listing submitted successfully!
+                        </h5>
+                        <Button
                             className="bg-blue-500 text-white px-3 py-1 rounded"
                             onClick={newListing}
                         >
                             Add Another
-                        </button>
+                        </Button>
                     </div>
                 ) : (
                     <div>
                         <h4 className="font-bold text-xl mb-2">Add Listing</h4>
 
                         <div className="mb-2">
-                            <label className="block mb-1 font-medium">Product</label>
+                            {/* <label className="block mb-1 font-medium">Product</label> */}
                             <input
                                 type="text"
                                 className="border border-gray-300 rounded w-full px-2 py-1"
@@ -73,17 +70,22 @@ export default function AddListing() {
                         </div>
 
                         <div className="mb-2">
-                            <label className="block mb-1 font-medium">Price</label>
-                            <input type="number" id="price" name="price" min="1" max="5" step="0.01"
+                            {/* <label className="block mb-1 font-medium">Price</label> */}
+                            <input
+                                type="number"
+                                id="price"
+                                name="price"
+                                min="1"
+                                max="5"
+                                step="0.01"
                                 className="border border-gray-300 rounded w-full px-2 py-1"
                                 value={price}
                                 onChange={(e) => {
-                                    if (Number(e.target.value) % 0.01 == 0) {
+                                    if (Number(e.target.value) % 0.01 === 0) {
                                         setPrice(Number(e.target.value));
                                     } else {
-                                        //tell user invalid must be within 
+                                        //tell user invalid must be within
                                     }
-
                                 }}
                             />
                         </div>
@@ -93,7 +95,6 @@ export default function AddListing() {
                             onClick={saveListing}
                         >
                             Submit
-
                         </Button>
                     </div>
                 )}
@@ -127,16 +128,11 @@ export default function AddListing() {
                             {/* <Button size="lg" component="a" href="#contact-section" color='lightseagreen'>
                 Say Hello
               </Button> */}
-                            <Button
-                                size="lg"
-                                component="a"
-                                href="/add"
-                                color="dark"
-                            >
+                            <Button size="lg" component="a" href="/add" color="dark">
                                 Add Listing
-                                <BsBoxArrowUpRight style={{ padding: '3px', }} />
+                                <BsBoxArrowUpRight style={{ padding: "3px" }} />
                             </Button>
-                            <input key={'search'} defaultValue={'Search here'}></input>
+                            <input key={"search"} defaultValue={"Search here"}></input>
                         </Group>
                     </GridCol>
                     <GridCol span={{ base: 12, md: 4, lg: 4 }} />
@@ -144,7 +140,6 @@ export default function AddListing() {
                 <br />
                 <br />
                 <br />
-
 
                 {/* Content of the section */}
                 <div id="project-section">
@@ -157,10 +152,10 @@ export default function AddListing() {
 
                         {/* button group */}
                     </Grid>
-
-
-                    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-
+                    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
+                    <br /> <br /> <br />
+                    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
+                    <br />
                     {/* end of project section */}
                 </div>
             </Box>

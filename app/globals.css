@@ -1,56 +1,56 @@
-@import "tailwindcss";
-
 h1 {
-  font-size: 3em;
-  padding: 1em;
-  /* Example font size (adjust as needed) */
-  text-align: center;
+	font-size: 3em;
+	padding: 1em;
+	/* Example font size (adjust as needed) */
+	text-align: center;
 }
 
 h2 {
-  font-size: 2.2em;
-  padding: 1em;
-  /* Example font size (adjust as needed) */
+	font-size: 2.2em;
+	padding: 1em;
+	/* Example font size (adjust as needed) */
 }
 
 h3 {
-  padding: 1em;
-  /* Example font size (adjust as needed) */
+	padding: 1em;
+	/* Example font size (adjust as needed) */
 }
 
 html {
-  scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 p {
-  font-size: 1em;
-  padding: 1em;
-  /* Example font size (adjust as needed) */
-
+	font-size: 1em;
+	padding: 1em;
+	/* Example font size (adjust as needed) */
 }
 
 h4 {
-  text-align: center;
-  font-size: 2em;
+	text-align: center;
+	font-size: 2em;
+}
+
+h5 {
+	text-align: center;
+	font-size: 1.5em;
 }
 
 .bar {
-  background-color: lightseagreen;
+	background-color: lightseagreen;
 }
 
 #project-section {
-  background-color: #111111;
-  color: white;
-
+	background-color: #111111;
+	color: white;
 }
 
 #project-section-alt {
-  background-color: white;
-  color: black;
-
+	background-color: white;
+	color: black;
 }
 
 #contact-section {
-  background-color: white;
-  color: black;
+	background-color: white;
+	color: black;
 }

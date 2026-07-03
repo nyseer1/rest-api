@@ -1,45 +1,38 @@
 {
-  "name": "my-rest-api",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "nodemon index.js",
-    "build": "next build",
-    "start": "node index.js",
-    "next": "next dev",
-    "lint": "biome check",
-    "format": "biome format --write"
-  },
-  "dependencies": {
-    "@mantine/core": "^9.0.1",
-    "@mantine/dates": "^9.0.1",
-    "@mantine/form": "^9.0.1",
-    "@mantine/hooks": "^9.0.1",
-    "@mantine/modals": "^9.0.1",
-    "@tabler/icons-react": "^3.41.1",
-    "@tailwindcss/postcss": "^4.2.2",
-    "axios": "^1.15.0",
-    "cors": "^2.8.6",
-    "dayjs": "^1.11.20",
-    "express": "^5.2.1",
-    "mongoose": "^9.4.1",
-    "next": "^16.2.3",
-    "postcss": "^8.5.9",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-icons": "^5.6.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.2.0",
-    "@types/node": "^20.19.39",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "dotenv": "^17.4.1",
-    "install": "^0.13.0",
-    "nodemon": "^3.1.14",
-    "npm": "^11.12.1",
-    "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3"
-  },
-  "type": "module"
+	"name": "my-rest-api",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "nodemon index.js",
+		"build": "next build",
+		"start": "node index.js",
+		"next": "next dev",
+		"lint": "biome check",
+		"format": "biome format --write"
+	},
+	"dependencies": {
+		"axios": "^1.15.0",
+		"brace-expansion": "^5.0.5",
+		"cors": "^2.8.6",
+		"dayjs": "^1.11.20",
+		"express": "^5.2.1",
+		"mongoose": "^9.4.1",
+		"next": "^16.2.3",
+		"react": "19.2.4",
+		"react-dom": "19.2.4",
+		"react-icons": "^5.6.0",
+		"typescript-eslint": "^8.59.2"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.0",
+		"@types/node": "^20.19.39",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+		"dotenv": "^17.4.1",
+		"install": "^0.13.0",
+		"nodemon": "^3.1.14",
+		"npm": "^11.12.1",
+		"typescript": "^5.9.3"
+	},
+	"type": "module"
 }

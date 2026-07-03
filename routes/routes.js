@@ -1,31 +1,50 @@
 import * as controllers from "../controllers/controllers.js";
 import express from "express";
-//ROUTES 
+//ROUTES
 //they tell express call these funcs when getting a http request (the method names) at a specified page (link)
 export default (app) => {
-    let router = express.Router();
+	let router = express.Router();
 
-    // create new entity
-    router.post("/", controllers.mongooseConnection, controllers.createOne);
+	// create new entity
+	router.post("/", controllers.mongooseConnection, controllers.createOne);
 
-    // get all entities
-    router.get("/", controllers.mongooseConnection, controllers.getAll);
+	// get all entities
+	router.get("/", controllers.mongooseConnection, controllers.getAll);
 
-    // get one entity with id (middleware getEntityByID runs first and gives the user to the 2nd function)
-    router.get("/:id", controllers.mongooseConnection, controllers.getEntityByID, controllers.getOne);
+	// get one entity with id (middleware getEntityByID runs first and gives the user to the 2nd function)
+	router.get(
+		"/:id",
+		controllers.mongooseConnection,
+		controllers.getEntityByID,
+		controllers.getOne,
+	);
 
-    // update one entity with id
-    router.patch("/:id", controllers.mongooseConnection, controllers.getEntityByID, controllers.updateOne);
+	// update one entity with id
+	router.patch(
+		"/:id",
+		controllers.mongooseConnection,
+		controllers.getEntityByID,
+		controllers.updateOne,
+	);
 
-    // delete one with id
-    router.delete("/:id", controllers.mongooseConnection, controllers.getEntityByID, controllers.deleteOne);
+	// delete one with id
+	router.delete(
+		"/:id",
+		controllers.mongooseConnection,
+		controllers.getEntityByID,
+		controllers.deleteOne,
+	);
 
-    // delete all
-    router.delete("/", controllers.mongooseConnection, controllers.deleteAll);
+	// delete all
+	router.delete("/", controllers.mongooseConnection, controllers.deleteAll);
 
-    // find all by filter
-    router.get("/verified", controllers.mongooseConnection, controllers.findVerified);
+	// find all by filter
+	router.get(
+		"/verified",
+		controllers.mongooseConnection,
+		controllers.findVerified,
+	);
 
-    //tells express to use /controller as its default path for all of these routes
-    app.use("/api/listings", router);
+	// tells express to use this route as its default path for all of these routes
+	app.use("/api/listings", router);
 };

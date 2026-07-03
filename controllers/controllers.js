@@ -47,10 +47,11 @@ export const updateOne = async (req, res) => {
 
 //CREATE (ONE)
 export const createOne = async (req, res) => {
+    console.log('create controller was started')
 
     //if name is not taken, create new entity with name specified
     const nameCheck = await Listing.find();
-    if (nameCheck.size == 1) res.status(400).json({ message: 'Username already in use :(' });
+    if (nameCheck.size === 1) res.status(400).json({ message: 'Username already in use :(' });
 
     //creates new js object (using mongoose object model)
     const listing = new Listing({
@@ -120,10 +121,11 @@ next is the callback (function passed into a function to be called later)
 export const mongooseConnection = async (req, res, next) => {
     try {
         await dbConnect();
+        //TODO CHECK TO SEE IF THIS IS SHOWING UP AT ALL
         console.log("successfully connected to server")
     }
     catch {
-        console.log('Failed to connect to server at dbConnect()')
+        console.log('Failed to connect to server at method: dbConnect()')
     }
     next()
 

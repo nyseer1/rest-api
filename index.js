@@ -1,41 +1,40 @@
-//sets up express to handle backend logic including middlware and routing
+//sets up express to handle backend logic including middleware and routing
+import cors from "cors"; //to let client receive info from server
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
 import routes from "./routes/routes.js";
-import dotenv from 'dotenv';
-import cors from 'cors'; //to let client recieve info from server
-dotenv.config();
-import express from 'express';
-const app = express()
-import mongoose from 'mongoose';
+dotenv.config(); //stores env variables to protect sensitive data
+const app = express(); //start express
 const port = 3000;
-//dotenv file here, to hide any sensitive data in deployment
 
-app.use(express.json())
-//TODO I HAVE TO PROVIDE VERCEL WITH A ENV VARIABLE THAT SAYS NODE_ENV = 'production' OR ELSE THIS WONT WORK
-// cors allows frontend to recieve http responses for a specified url
-app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-        ? 'https://https://nyseer-ecommerce-site.vercel.app/'  //if production then allow this url
-        : 'http://localhost:3001' //if local then allow this url
-}));
+app.use(express.json()); //(auto-convert string client requests into json)
 
-//routes
-routes(app); //imports and tells express to use the routes that i defined in routes.js file
+//HAVE TO PROVIDE VERCEL WITH A ENV VARIABLE THAT SAYS NODE_ENV = 'production' OR ELSE THIS WONT WORK
+// cors allows frontend to recieve http responses for a specified url(indicates specified origins other than its original url can receive responses)
+app.use(
+	cors({
+		origin:
+			process.env.NODE_ENV === "production"
+				? "https://https://nyseer-ecommerce-site.vercel.app/" //if production then allow this url
+				: "http://localhost:3001", //if local then allow this url
+	}),
+);
 
-//routes the js file to the page. express is using the imported crud functions as a middleware for every page(can be a series of middleware with .use)
-const page = '/api';
-import httpRequestFunctions from './controllers/controllers.js';
-app.use(page, httpRequestFunctions)
+routes(app); //tells express to use the routes that i defined in routes.js file (that was imported earlier)
+
+//app.use: route js file path to url (all js files in path linked). Controllers: crud functions applied to each http request for every js page
+const listingsPage = "/api/listings";
+import httpRequestFunctions from "./controllers/controllers.js";
+app.use(listingsPage, httpRequestFunctions);
 
 //for development only: (will not work on vercel) (its for local server responses)
-if (process.env.NODE_ENV === 'development') {
-    //connect to server and run the function ONCE on startup
-    app.listen(port, () => {
-        console.log(`app listening on port ${port}`)
-    })
+if (process.env.NODE_ENV === "development") {
+	//connect to server and run the function ONCE on startup
+	app.listen(port, () => {
+		console.log(`app listening on port ${port}`);
+	});
 }
-
-
-
 
 //export so i can use this on vercel
 export default app;
