@@ -29,16 +29,30 @@ export default function HomePage() {
 				{/* todo shop image here */}
 				<h2>Software Shop</h2>
 			</div>
-
-
-			<div className="card">
-				<div className="container">
+			<div id="shop" className="cardGrid">
+				<div className="card">
 					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
 					<h4><b>NLC Synth Pad</b></h4>
 					<p>Highly advanced touch synth pads. Capable of quickly creating complex
 						rhythms and melodies through user gestures.</p>
+
+				</div>
+				<div className="card">
+					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
+					<h4><b>NLC Synth Pad</b></h4>
+					<p>Highly advanced touch synth pads. Capable of quickly creating complex
+						rhythms and melodies through user gestures.</p>
+
+				</div>
+				<div className="card">
+					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
+					<h4><b>NLC Synth Pad</b></h4>
+					<p>Highly advanced touch synth pads. Capable of quickly creating complex
+						rhythms and melodies through user gestures.</p>
+
 				</div>
 			</div>
+
 
 			<div id="contact">
 				{/* test */}
