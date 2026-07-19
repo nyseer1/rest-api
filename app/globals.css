@@ -2,12 +2,16 @@
 :root {
 	--d-bg-primary: #000;
 	--d-bg-secondary: rgb(255, 254, 255);
+	--d-bg-outline: #333;
+	--d-bg-clickable: #111;
 	--l-bg-primary: rgb(247, 244, 235);
 	--l-bg-secondary: rgb(124, 124, 204);
 	--l-bg-outline: #aaa;
+	--d-box-shadow: rgba(212, 203, 203, 0.2);
+	--l-box-shadow: rgba(212, 203, 203, 0.2);
 }
 
-/* basically the theme */
+/* basically the theme of the whole site here */
 html {
 	background-color: var(--d-bg-primary);
 	scroll-behavior: smooth;
@@ -29,7 +33,7 @@ ul {
 	/* transition: top 0.3s; /* Transition effect when sliding down (and up) */
 	position: fixed;
 	border-width: 2px;
-	border: 1px solid #aaa;
+	border: 1px solid var(--d-bg-outline);
 }
 
 ul li a {
@@ -39,18 +43,18 @@ ul li a {
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 18;
-	background-color: var(--d-bg-primary)
-		/* width: 100%; */
+	background-color: var(--d-bg-clickable);
+	/* width: 100%; */
 }
 
 ul li .hamburger {
-	color: white;
-	background-color: #111;
+	color: var(--d-bg-secondary);
+	background-color: var(--d-bg-primary);
 }
 
 ul li .hamburger:hover {
-	color: white;
-	background-color: #333;
+	color: var(--d-bg-secondary);
+	background-color: var(--d-bg-outline);
 }
 
 ul .icon {
@@ -59,93 +63,12 @@ ul .icon {
 }
 
 ul li a:hover {
-	background-color: #333;
+	background-color: var(--d-bg-outline);
 }
 
 .logo {
-	background-color: #111;
+	background-color: var(--d-bg-clickable);
 }
-
-
-/* AUTO LIGHT MODE if client(user) requests light mode */
-@media (prefers-color-scheme: light) {
-	html {
-		background-color: var(--l-bg-primary);
-		color: var(--l-bg-secondary);
-	}
-
-	/* todo put an outline here */
-	ul {
-		border: 1px solid var(--l-bg-outline);
-	}
-
-	ul li a {
-		background-color: var(--l-bg-primary);
-		color: var(--l-bg-secondary);
-	}
-
-	ul li a:hover {
-		background-color: rgba(255, 254, 255);
-		color: rgb(157, 151, 194);
-		outline-color: rgb(157, 151, 194);
-	}
-
-	ul li .hamburger {
-		background-color: rgba(255, 254, 255);
-		color: rgb(147, 141, 194);
-	}
-
-	.logo {
-		background-color: rgba(247, 244, 235);
-		color: rgb(157, 151, 194);
-	}
-
-	.card {
-		/* Add shadows to create the "card" effect */
-		box-shadow: 0 4px 8px 0 rgba(34, 33, 33, 0.2);
-		border: 1px solid rgb(31, 28, 52);
-		background-color: rgba(247, 244, 235);
-		/* width: 50%; */
-	}
-
-	/* On mouse-over, add a deeper shadow */
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(34, 33, 33, 0.2);
-	}
-}
-
-
-/* Make a one column-layout instead of three-column layout */
-@media (max-width: 600px) {
-	ul {
-		flex-direction: column;
-		position: relative;
-		/* position: relative; */
-		width: 100%;
-
-		/* padding-left: 0%; */
-	}
-
-	/* hide list except home and icon */
-
-	ul .navbarItems {
-		display: none;
-	}
-
-	ul .icon {
-		float: right;
-		display: block;
-	}
-}
-
-/* optional medium screen size breakpoint */
-/* @media (max-width: 1000px) {
-	ul {
-		padding-left: 0%;
-	}
-} */
-
-
 
 /* header and body */
 h1 {
@@ -185,43 +108,19 @@ p {
 	/* padding-right: 20%; */
 }
 
-@media (max-width: 600px) {
-	#contact-p {
-		/* text-align: center; */
-		font-size: 1.5rem;
-		padding-left: 15%;
-		padding-right: 15%;
-		/* padding-left: 35%; */
-		/* padding-right: 20%; */
-	}
-}
-
-/* 
-#project-section {
-	background-color: black;
-	color: white;
-}
-
-#project-section-alt {
-}
-
-#contact-section {
-} */
-
-
 .card {
 	/* Add shadows to create the "card" effect */
-	box-shadow: 0 4px 8px 0 rgba(212, 203, 203, 0.2);
+	box-shadow: 0 4px 8px 0 var(--d-box-shadow);
 	transition: 0.3s;
-	border: 1px solid #aaa;
+	border: 1px solid var(--d-bg-outline);
 	border-radius: 2rem;
-	background-color: rgba(212, 203, 203, 0.2);
-	/* width: 50%; */
+	background-color: var(--d-bg-clickable)
+		/* width: 50%; */
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-	box-shadow: 0 8px 16px 0 rgba(236, 234, 234, 0.2);
+	box-shadow: 0 8px 16px 0 var(--d-box-shadow);
 }
 
 /* Add some padding inside the card container */
@@ -236,4 +135,93 @@ img {
 	text-align: center;
 	width: 100%;
 	/* padding: 50 50 50 500; */
+	border-radius: 5px 5px 5px 5px;
 }
+
+
+/* AUTO LIGHT MODE if client(user) requests light mode (DARK MODE VALUES HAVE TO BE SET FIRST IN CODE)*/
+@media (prefers-color-scheme: light) {
+	html {
+		background-color: var(--l-bg-primary);
+		color: var(--l-bg-secondary);
+	}
+
+	/* todo put an outline here */
+	ul {
+		border: 1px solid var(--l-bg-outline);
+	}
+
+	ul li a {
+		background-color: var(--l-bg-primary);
+		color: var(--l-bg-secondary);
+	}
+
+	ul li a:hover {
+		background-color: var(--d-bg-secondary);
+		color: var(--l-bg-secondary);
+		outline-color: var(--l-bg-outline);
+	}
+
+	ul li .hamburger {
+		background-color: var(--d-bg-secondary);
+		color: var(--l-bg-secondary);
+	}
+
+	.logo {
+		background-color: var(--l-bg-primary);
+		color: var(--l-bg-secondary);
+	}
+
+	.card {
+		/* Add shadows to create the "card" effect */
+		box-shadow: 0 4px 8px 0 var(--l-bg-outline);
+		border: 2px solid var(--l-bg-outline);
+		background-color: var(--l-bg-primary);
+		/* width: 50%; */
+	}
+
+	/* On mouse-over, add a deeper shadow */
+	.card:hover {
+		box-shadow: 0 8px 16px 0 var(--l-bg-outline);
+	}
+}
+
+
+/* PAGE RESIZING: */
+/* Make a one column-layout instead of three-column layout */
+@media (max-width: 600px) {
+	ul {
+		flex-direction: column;
+		position: relative;
+		/* position: relative; */
+		width: 100%;
+		/* padding-left: 0%; */
+	}
+
+	/* hide list except home and icon */
+	ul .navbarItems {
+		display: none;
+	}
+
+	ul .icon {
+		float: right;
+		display: block;
+	}
+
+	/* resize specific div (section) */
+	#contact-p {
+		/* text-align: center; */
+		font-size: 1.5rem;
+		padding-left: 15%;
+		padding-right: 15%;
+		/* padding-left: 35%; */
+		/* padding-right: 20%; */
+	}
+}
+
+/* optional medium screen size breakpoint */
+/* @media (max-width: 1000px) {
+	ul {
+		padding-left: 0%;
+	}
+} */

@@ -40,7 +40,7 @@ export default function HomePage() {
 
 			<div id="contact">
 				{/* test */}
-				<h1>Contact</h1>
+				<h2>Contact</h2>
 				<p id="contact-p">
 					<b>Phone:</b> <a href="tel:+1-347-579-9610">(347)-579-9610</a>
 					<br />
