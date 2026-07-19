@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
+import BackToTopButton from "./components/BackToTopButton";
+
 export default function HomePage() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
@@ -56,6 +58,7 @@ export default function HomePage() {
 				{/* todo add back to top button here */}
 				<br style={{ lineHeight: 10 }} />
 			</div>
+			<BackToTopButton />
 			{/* poo */}
 		</div>
 	);
