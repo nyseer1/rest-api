@@ -148,19 +148,20 @@ img {
 	font-size: 18px;
 	border: none;
 	outline: none;
-	background-color: var(--d-bg-outline);
+	background-color: var(--d-bg-clickable);
 	color: var(--d-bg-secondary);
 	cursor: pointer;
 	padding: 15px;
 	border-radius: 4px;
 	width: 10%;
 	opacity: 0;
+	border: 2px solid #555;
 	transition: visibility 0s, opacity 0.1s linear;
 	/* transition: width 2s, height 4s, background-color 3s; */
 }
 
 .floatingButton:hover {
-	background-color: var(--l-bg-outline);
+	background-color: #666;
 	width: 10%;
 	opacity: 1;
 
@@ -210,6 +211,12 @@ img {
 	/* On mouse-over, add a deeper shadow */
 	.card:hover {
 		box-shadow: 0 8px 16px 0 var(--l-bg-outline);
+	}
+
+	.floatingButton {
+		background-color: var(--l-bg-primary);
+		color: var(--l-bg-secondary);
+		border: 2px solid var(--l-bg-outline);
 	}
 }
 
