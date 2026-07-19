@@ -1,78 +1,62 @@
-//dynamic segment (nextjs) created by wrapping file or folder name in square brackets: [segmentName]
-// import Link from 'next/link';
-// import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
-import { BsBoxArrowUpRight } from "react-icons/bs";
-
+"use client";
+import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
 export default function HomePage() {
+	const [isDesktop, setDesktop] = useState<boolean>(false);
+
+	const updateMedia = () => {
+		setDesktop(window.innerWidth > 600);
+	};
+
+	useEffect(() => {
+		window.addEventListener("resize", updateMedia);
+		return () => window.removeEventListener("resize", updateMedia);
+	});
 	return (
-		<>
-			<div id="home-section" />
-			{/* <HeaderSimple /> */}
+		<div className="adaptive">
+			<div id="home" className="adaptive">
+				<Navbar />
+				{/* test */}
+				{isDesktop ? (
+					<br style={{ lineHeight: 3 }} />
+				) : (
+					<br style={{ lineHeight: 6 }} />
+				)}
+			</div>
+			<div id="projects">
+				{/* todo shop image here */}
+				<h2>Software Shop</h2>
+			</div>
 
-			<Box px={{ base: "sm", md: "xl" }}>
-				{/* grouped by rows */}
-				<Grid>
-					<GridCol span={{ base: 1, md: 5, lg: 5 }} />
 
-					<GridCol span={{ base: 12, md: 2, lg: 2 }}>
-						{/* <Image
-                            component={NextImage}
-                            radius="lg"
-                            h={200}
-                            w="auto"
-                            fit="contain"
-                            src={myPhoto}
-                            alt="My image"
-                        /> */}
-
-						<br />
-						<br />
-						<br />
-					</GridCol>
-					<GridCol span={{ base: 1, md: 5, lg: 5 }} />
-
-					<GridCol span={{ base: 12, md: 4, lg: 4 }} />
-					<GridCol span={{ base: 12, md: 4, lg: 4 }}>
-						<Group justify="center">
-							{/* <Button size="lg" component="a" href="#contact-section" color='lightseagreen'>
-                Say Hello
-              </Button> */}
-							<Button
-								size="lg"
-								component="a"
-								href="/api/listings/"
-								color="dark"
-							>
-								Goto Listings
-								<BsBoxArrowUpRight style={{ padding: "3px" }} />
-							</Button>
-							<input key={"search"} defaultValue={"Search here"} />
-						</Group>
-					</GridCol>
-					<GridCol span={{ base: 12, md: 4, lg: 4 }} />
-				</Grid>
-				<br />
-				<br />
-				<br />
-
-				{/* Content of the section */}
-				<div id="project-section">
-					<Grid>
-						<GridCol span={{ base: 10, md: 3, lg: 3 }} />
-
-						<GridCol span={{ base: 12, md: 6, lg: 6 }}>
-							<h1>Featured Listings:</h1>
-						</GridCol>
-
-						{/* button group */}
-					</Grid>
-					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
-					<br /> <br /> <br />
-					<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />{" "}
-					<br />
-					{/* end of project section */}
+			<div className="card">
+				<div className="container">
+					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
+					<h4><b>NLC Synth Pad</b></h4>
+					<p>Highly advanced touch synth pads. Capable of quickly creating complex
+						rhythms and melodies through user gestures.</p>
 				</div>
-			</Box>
-		</>
+			</div>
+
+			<div id="contact">
+				{/* test */}
+				<h1>Contact</h1>
+				<p id="contact-p">
+					<b>Phone:</b> <a href="tel:+1-347-579-9610">(347)-579-9610</a>
+					<br />
+					<b>Email:</b>{" "}
+					<a
+						href="mailto:nyseer.couse@gmail.com"
+						aria-label="nyseer.couse@gmail.com"
+					>
+						nyseer.couse@gmail.com
+					</a>
+					<br />
+				</p>
+				{/* todo add back to top button here */}
+				<br style={{ lineHeight: 10 }} />
+			</div>
+			{/* poo */}
+		</div>
 	);
 }

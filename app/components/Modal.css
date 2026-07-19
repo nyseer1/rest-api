@@ -1,0 +1,73 @@
+/* The Modal (background) */
+* {
+	box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+	width: 100%;
+	background-color: #111;
+	color: white;
+	border: none;
+	height: 3rem;
+	font-size: 1rem;
+	position: relative;
+}
+button:hover {
+	width: 100%;
+	background-color: #333;
+	color: white;
+	border: none;
+}
+
+/* auto light mode if client(user) requests light mode */
+@media (prefers-color-scheme: light) {
+	button {
+		background-color: rgba(247, 244, 235);
+		outline-color: aquamarine;
+		color: rgb(157, 151, 194);
+	}
+	button:hover {
+		background-color: rgba(255, 254, 255);
+		color: rgb(157, 151, 194);
+		outline-color: rgb(157, 151, 194);
+	}
+}
+
+#navbarModal {
+	padding-top: 10%;
+}
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #000000;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+	color: #000;
+	background-color: #fff;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
