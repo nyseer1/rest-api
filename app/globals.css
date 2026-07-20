@@ -203,14 +203,17 @@ img {
 	.card {
 		/* Add shadows to create the "card" effect */
 		box-shadow: 0 4px 8px 0 var(--l-bg-outline);
-		border: 2px solid var(--l-bg-outline);
 		background-color: var(--l-bg-primary);
+		/* border: 2px var(--l-bg-outline); */
 		/* width: 50%; */
+		border: 1px solid var(--l-bg-outline);
+
 	}
 
 	/* On mouse-over, add a deeper shadow */
 	.card:hover {
 		box-shadow: 0 8px 16px 0 var(--l-bg-outline);
+		border: 3px solid var(--l-bg-outline);
 	}
 
 	.floatingButton {
