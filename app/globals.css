@@ -111,17 +111,18 @@ p {
 .card {
 	/* Add shadows to create the "card" effect */
 	box-shadow: 0 4px 8px 0 var(--d-box-shadow);
-	transition: 0.3s;
+	transition: 0.2s;
 	border: 1px solid var(--d-bg-outline);
 	border-radius: 2rem;
 	background-color: var(--d-bg-clickable);
-	padding: 1rem;
+	padding: 1.5rem;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
 	box-shadow: 0 8px 16px 0 var(--d-box-shadow);
-	padding: 2rem;
+	/* padding: 2rem; */
+	border: 1px solid var(--l-bg-outline);
 }
 
 .cardGrid {
