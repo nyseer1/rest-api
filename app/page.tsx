@@ -31,28 +31,48 @@ export default function HomePage() {
 			</div>
 			<div id="shop" className="cardGrid">
 				<div className="card">
-					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
-					<h4><b>NLC Synth Pad</b></h4>
-					<p>Highly advanced touch synth pads. Capable of quickly creating complex
-						rhythms and melodies through user gestures.</p>
-
+					<img
+						src="img_avatar.png"
+						alt="NLCSynthPadLogo"
+						style={{ width: "100%" }}
+					/>
+					<h4>
+						<b>NLC Synth Pad</b>
+					</h4>
+					<p>
+						Highly advanced touch synth pads. Capable of quickly creating
+						complex rhythms and melodies through user gestures.
+					</p>
 				</div>
 				<div className="card">
-					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
-					<h4><b>NLC Synth Pad</b></h4>
-					<p>Highly advanced touch synth pads. Capable of quickly creating complex
-						rhythms and melodies through user gestures.</p>
-
+					<img
+						src="img_avatar.png"
+						alt="NLCSynthPadLogo"
+						style={{ width: "100%" }}
+					/>
+					<h4>
+						<b>NLC Synth Pad</b>
+					</h4>
+					<p>
+						Highly advanced touch synth pads. Capable of quickly creating
+						complex rhythms and melodies through user gestures.
+					</p>
 				</div>
 				<div className="card">
-					<img src="img_avatar.png" alt="NLCSynthPadLogo" style={{ width: '100%' }} />
-					<h4><b>NLC Synth Pad</b></h4>
-					<p>Highly advanced touch synth pads. Capable of quickly creating complex
-						rhythms and melodies through user gestures.</p>
-
+					<img
+						src="img_avatar.png"
+						alt="NLCSynthPadLogo"
+						style={{ width: "100%" }}
+					/>
+					<h4>
+						<b>NLC Synth Pad</b>
+					</h4>
+					<p>
+						Highly advanced touch synth pads. Capable of quickly creating
+						complex rhythms and melodies through user gestures.
+					</p>
 				</div>
 			</div>
-
 
 			<div id="contact">
 				{/* test */}
