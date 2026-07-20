@@ -7,6 +7,29 @@ import ListingService from "@/services/listing.service";
 export default function AddListing() {
     const [isDesktop, setDesktop] = useState<boolean>(false);
 
+    //listing info
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [submitted, setSubmitted] = useState(false);
+
+    const saveListing = () => {
+        const data = { title, description };
+        ListingService.create(data)
+            .then((response) => {
+                console.log(response.data);
+                setSubmitted(true);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+    const newListing = () => {
+        setTitle("");
+        setDescription("");
+        setSubmitted(false);
+    };
+
+
     const updateMedia = () => {
         setDesktop(window.innerWidth > 600);
     };
