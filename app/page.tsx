@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import BackToTopButton from "./components/BackToTopButton";
+import Navbar from "@/components/Navbar";
+import BackToTopButton from "@/components/BackToTopButton";
 
 export default function HomePage() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);

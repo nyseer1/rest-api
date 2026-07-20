@@ -4,14 +4,14 @@
 	--d-bg-secondary: rgb(255, 254, 255);
 	--d-bg-outline: #333;
 	--d-bg-clickable: #111;
+	--d-box-shadow: rgba(212, 203, 203, 0.2);
 	--l-bg-primary: rgb(247, 244, 235);
 	--l-bg-secondary: rgb(124, 124, 204);
 	--l-bg-outline: #aaa;
-	--d-box-shadow: rgba(212, 203, 203, 0.2);
 	--l-box-shadow: rgba(212, 203, 203, 0.2);
 }
 
-/* basically the theme of the whole site here */
+/* whole site behavior */
 html {
 	background-color: var(--d-bg-primary);
 	scroll-behavior: smooth;

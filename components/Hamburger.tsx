@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import "@/app/components/hamburgers.css";
-import "@/app/components/Modal.css";
+import "@/components/hamburgers.css";
+import "@/components/Modal.css";
 import { useState, useEffect, useRef } from "react";
 export default function Hamburger() {
 	// states
@@ -36,7 +36,7 @@ export default function Hamburger() {
 
 	return (
 		<>
-		{/* todo make this change colors in light mode */}
+			{/* todo make this change colors in light mode */}
 			<button
 				className={
 					isActive
