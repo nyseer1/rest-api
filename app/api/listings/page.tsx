@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
+import Image from "next/image";
 ``;
 export default function Listings() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
@@ -30,9 +31,11 @@ export default function Listings() {
 			</div>
 			<div id="shop" className="cardGrid">
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>
@@ -44,9 +47,11 @@ export default function Listings() {
 					</p>
 				</div>
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>
@@ -58,9 +63,11 @@ export default function Listings() {
 					</p>
 				</div>
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>

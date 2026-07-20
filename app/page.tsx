@@ -31,9 +31,11 @@ export default function HomePage() {
 			</div>
 			<div id="shop" className="cardGrid">
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>
@@ -45,9 +47,11 @@ export default function HomePage() {
 					</p>
 				</div>
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>
@@ -59,9 +63,11 @@ export default function HomePage() {
 					</p>
 				</div>
 				<div className="card">
-					<img
-						src="img_avatar.png"
+					<Image
+						src="/img_avatar.png"
 						alt="NLCSynthPadLogo"
+						width={500}
+						height={500}
 						style={{ width: "100%" }}
 					/>
 					<h4>
