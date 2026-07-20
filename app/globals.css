@@ -1,3 +1,4 @@
+/* .className #id :keyword */
 /* color palette */
 :root {
 	--d-bg-primary: #000;
@@ -32,7 +33,6 @@ ul {
 	/* padding-left: 20%; */
 	/* transition: top 0.3s; /* Transition effect when sliding down (and up) */
 	position: fixed;
-	border-width: 2px;
 	border: 1px solid var(--d-bg-outline);
 }
 
@@ -83,7 +83,6 @@ h2 {
 	padding-left: 2.5em;
 	padding-right: 2.5em;
 	padding-top: 3em;
-
 }
 
 h3 {
@@ -99,7 +98,7 @@ p {
 	font-size: 1.2rem;
 }
 
-#contact-p {
+.contact-p {
 	/* text-align: center; */
 	font-size: 1.5rem;
 	padding-left: 25%;
@@ -164,7 +163,6 @@ img {
 	border: 2px solid var(--l-bg-outline);
 	width: 10%;
 	opacity: 1;
-
 }
 
 /* AUTO LIGHT MODE if client(user) requests light mode (DARK MODE VALUES HAVE TO BE SET FIRST IN CODE)*/
@@ -207,7 +205,6 @@ img {
 		/* border: 2px var(--l-bg-outline); */
 		/* width: 50%; */
 		border: 1px solid var(--l-bg-outline);
-
 	}
 
 	/* On mouse-over, add a deeper shadow */
@@ -226,8 +223,6 @@ img {
 		background-color: var(--l-bg-secondary);
 		color: var(--l-bg-primary);
 	}
-
-
 }
 
 /* PAGE RESIZING: */
@@ -259,7 +254,7 @@ img {
 	}
 
 	/* resize specific div (section) */
-	#contact-p {
+	.contact-p {
 		/* text-align: center; */
 		font-size: 1.5rem;
 		padding-left: 15%;

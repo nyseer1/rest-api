@@ -1,9 +1,9 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
-import Image from "next/image";
-``;
+
 export default function Listings() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
@@ -19,16 +19,15 @@ export default function Listings() {
 		<div className="adaptive">
 			<div id="home" className="adaptive">
 				<Navbar />
+				{/* test */}
 				{isDesktop ? (
 					<br style={{ lineHeight: 3 }} />
 				) : (
 					<br style={{ lineHeight: 6 }} />
 				)}
 			</div>
-			<div id="projects">
-				{/* todo shop image here */}
-				<h2>Software Shop</h2>
-			</div>
+			{/* todo shop image here */}
+			<h2>Software Shop</h2>
 			<div id="shop" className="cardGrid">
 				<div className="card">
 					<Image
@@ -83,7 +82,7 @@ export default function Listings() {
 			<div id="contact">
 				{/* test */}
 				<h2>Contact</h2>
-				<p id="contact-p">
+				<p className="contact-p">
 					<b>Phone:</b> <a href="tel:+1-347-579-9610">(347)-579-9610</a>
 					<br />
 					<b>Email:</b>{" "}
