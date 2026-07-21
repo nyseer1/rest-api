@@ -3,9 +3,27 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
-
+// import
+``;
 export default function Listings() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
+
+	//listing info
+	const [name, setName] = useState("");
+	const [description, setDescription] = useState("");
+	const [submitted, setSubmitted] = useState(false);
+
+	const saveListing = () => {
+		const data = { name, description };
+
+		// todo make http get request here with no body, get all
+		//
+	};
+	const newListing = () => {
+		setName("");
+		setDescription("");
+		setSubmitted(false);
+	};
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth > 600);
