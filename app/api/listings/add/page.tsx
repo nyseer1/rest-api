@@ -9,23 +9,18 @@ export default function AddListing() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
 	//listing info
-	const [title, setTitle] = useState("");
+	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [submitted, setSubmitted] = useState(false);
 
 	const saveListing = () => {
-		const data = { title, description };
-		ListingService.create(data)
-			.then((response) => {
-				console.log(response.data);
-				setSubmitted(true);
-			})
-			.catch((e) => {
-				console.log(e);
-			});
+		const data = { name, description };
+
+		// todo make http get request here with no body, get all
+		//
 	};
 	const newListing = () => {
-		setTitle("");
+		setName("");
 		setDescription("");
 		setSubmitted(false);
 	};
