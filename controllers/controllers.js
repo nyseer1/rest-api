@@ -13,11 +13,11 @@ export const getAll = async (req, res) => {
 		const condition = { name: new RegExp(name, "i") }; //make this a fast anchored regex if # of entities reaches 100k-1M - new RegExp('^' + name) uses index to go straight to elements that start with name
 		//if condition exists, add that condition to the filter. else just get all
 		if (name !== "") {
-			const result = await Listing.find(condition).exec();
+			const result = await Listing.find(condition);
 			console.log(`get (filter by name: ${name} ) request was made here`); //must use backticks
 			res.status(200).json(result);
 		} else {
-			const result = await Listing.find().exec();
+			const result = await Listing.find();
 			console.log("get (read all) request was made here");
 			res.status(200).json(result);
 		}

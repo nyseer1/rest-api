@@ -2,7 +2,7 @@
 import cors from "cors"; //to let client receive info from server
 import dotenv from "dotenv";
 import express from "express";
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 import routes from "./routes/routes.js";
 dotenv.config(); //stores env variables to protect sensitive data
 const app = express(); //start express

@@ -1,6 +1,6 @@
 import axios from "axios";
 import dotenv from "dotenv";
-import Listing from "@/models/listing";
+// import Listing from "@/models/listing";
 
 const baseUrl =
 	process.env.NODE_ENV === "production"
@@ -14,10 +14,9 @@ const http = axios.create({
 	},
 });
 
-const modelName = "/listings/"; //TODO USE THIS INSTEAD
+const modelName = "/listings/";
 
 const getAll = () => {
-	console.log("get all request was made here from axios");
 	return http.get(`${modelName}`);
 };
 

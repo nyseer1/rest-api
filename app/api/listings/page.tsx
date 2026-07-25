@@ -3,9 +3,15 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
-// import
+import dbConnect from "@/lib/dbConnect";
+// import Listings from "@/models/Listing";
+import Listings from "@/services/listing.service";
+export const runtime = "nodejs"; //make sure node is using full nodejs environment, not edge runtime (needed for mongodb)
 ``;
-export default function Listings() {
+export default async function ListingsPage() {
+
+	//todo http request get all here, save it to an array i think and delete axios and do it from tarnsack query or native fetch
+
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
 	//listing info
@@ -13,17 +19,17 @@ export default function Listings() {
 	const [description, setDescription] = useState("");
 	const [submitted, setSubmitted] = useState(false);
 
-	const saveListing = () => {
-		const data = { name, description };
+	// const saveListing = () => {
+	// 	const data = { name, description };
 
-		// todo make http get request here with no body, get all
-		//
-	};
-	const newListing = () => {
-		setName("");
-		setDescription("");
-		setSubmitted(false);
-	};
+	// 	// todo make http get request here with no body, get all
+	// 	db;
+	// };
+	// const newListing = () => {
+	// 	setName("");
+	// 	setDescription("");
+	// 	setSubmitted(false);
+	// };
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth > 600);
@@ -47,22 +53,29 @@ export default function Listings() {
 			{/* todo shop image here */}
 			<h2>Software Shop</h2>
 			<div id="shop" className="cardGrid">
-				<div className="card">
-					<Image
-						src="/img_avatar.png"
-						alt="NLCSynthPadLogo"
-						width={500}
-						height={500}
-						style={{ width: "100%" }}
-					/>
-					<h4>
-						<b>NLC Synth Pad</b>
-					</h4>
-					<p>
-						Highly advanced touch synth pads. Capable of quickly creating
-						complex rhythms and melodies through user gestures.
-					</p>
-				</div>
+				{listingsHTTPResponse.map((entity) => (
+					<div key={entity._id.toString()} className="card">
+						<Image
+							src="/img_avatar.png"
+							alt="Listing"
+							width={100}
+							height={100}
+							style={{ width: "100%" }}
+						/>
+						<h4>
+							<b>{entity.name}</b>
+						</h4>
+						<p>Blah blah blah stuff about the product</p>
+					</div>
+				))}
+
+				<h4>
+					<b>NLC Synth Pad</b>
+				</h4>
+				<p>
+					Highly advanced touch synth pads. Capable of quickly creating complex
+					rhythms and melodies through user gestures.
+				</p>
 				<div className="card">
 					<Image
 						src="/img_avatar.png"
