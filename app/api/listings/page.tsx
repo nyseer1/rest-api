@@ -3,14 +3,24 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
-import dbConnect from "@/lib/dbConnect";
-// import Listings from "@/models/Listing";
-import Listings from "@/services/listing.service";
-export const runtime = "nodejs"; //make sure node is using full nodejs environment, not edge runtime (needed for mongodb)
-``;
-export default async function ListingsPage() {
+// export const runtime = "nodejs"; //make sure node is using full nodejs environment, not edge runtime (needed for mongodb)
+import dbConnect from '@/lib/dbConnect';
+import ListingModelDB from '@/models/Listing';
+import { API_BASE_URL } from '@/config';
 
-	//todo http request get all here, save it to an array i think and delete axios and do it from tarnsack query or native fetch
+
+async function getUsers() {
+	try {
+		const responseJSON = await fetch(`${API_BASE_URL}/api/listings`);
+		if (!responseJSON.ok) throw new Error('NetWork Error, Get Listings Failed');
+		return responseJSON;
+	}
+	catch (error) {
+		console.error('Fetch Failed: ', error);
+	}
+};
+
+export default async function ListingsPage() {
 
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
@@ -18,18 +28,6 @@ export default async function ListingsPage() {
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 	const [submitted, setSubmitted] = useState(false);
-
-	// const saveListing = () => {
-	// 	const data = { name, description };
-
-	// 	// todo make http get request here with no body, get all
-	// 	db;
-	// };
-	// const newListing = () => {
-	// 	setName("");
-	// 	setDescription("");
-	// 	setSubmitted(false);
-	// };
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth > 600);
@@ -53,8 +51,8 @@ export default async function ListingsPage() {
 			{/* todo shop image here */}
 			<h2>Software Shop</h2>
 			<div id="shop" className="cardGrid">
-				{listingsHTTPResponse.map((entity) => (
-					<div key={entity._id.toString()} className="card">
+				{/* {listings.map((eachEntity) => ( //name of var self explanatory
+					<div key={eachEntity._id.toString()} className="card">
 						<Image
 							src="/img_avatar.png"
 							alt="Listing"
@@ -63,11 +61,11 @@ export default async function ListingsPage() {
 							style={{ width: "100%" }}
 						/>
 						<h4>
-							<b>{entity.name}</b>
+							<b>{eachEntity.name}</b>
 						</h4>
 						<p>Blah blah blah stuff about the product</p>
 					</div>
-				))}
+				))} */}
 
 				<h4>
 					<b>NLC Synth Pad</b>

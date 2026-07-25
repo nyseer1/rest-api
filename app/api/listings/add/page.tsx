@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import BackToTopButton from "@/components/BackToTopButton";
-// import
 ``;
+
 export default function AddListing() {
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
