@@ -6,7 +6,7 @@ import express from "express";
 import routes from "./routes/routes.js";
 dotenv.config(); //stores env variables to protect sensitive data
 const app = express(); //start express
-const port = 3000;
+const port = 3001;
 
 app.use(express.json()); //(auto-convert string client requests into json)
 
@@ -35,6 +35,5 @@ if (process.env.NODE_ENV === "development") {
 		console.log(`app listening on port ${port}`);
 	});
 }
-
 //export so i can use this on vercel
 export default app;

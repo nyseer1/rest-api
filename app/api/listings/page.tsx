@@ -11,16 +11,43 @@ import { API_BASE_URL } from '@/config';
 
 async function getUsers() {
 	try {
-		const responseJSON = await fetch(`${API_BASE_URL}/api/listings`);
+		const response = await fetch(`${API_BASE_URL}/api/listings`);
+		const responseJSON = await response.json();
 		if (!responseJSON.ok) throw new Error('NetWork Error, Get Listings Failed');
-		return responseJSON;
+		return (
+
+
+			<>
+				{
+					responseJSON.map((eachEntity) => ( //name of var self explanatory
+						<div key={eachEntity._id.toString()} className="card">
+							<Image
+								src="/img_avatar.png"
+								alt="Listing"
+								width={100}
+								height={100}
+								style={{ width: "100%" }}
+							/>
+							<h4>
+								<b>{eachEntity.name}</b>
+							</h4>
+							<p>Blah blah blah stuff about the product</p>
+						</div>
+					))
+				}
+			</>);
 	}
 	catch (error) {
 		console.error('Fetch Failed: ', error);
 	}
 };
 
+getUsers();
+
 export default async function ListingsPage() {
+
+	const data = await getUsers();
+	if (!data) { return <h1>Failed to Load Data!</h1> }
 
 	const [isDesktop, setDesktop] = useState<boolean>(false);
 
@@ -51,61 +78,7 @@ export default async function ListingsPage() {
 			{/* todo shop image here */}
 			<h2>Software Shop</h2>
 			<div id="shop" className="cardGrid">
-				{/* {listings.map((eachEntity) => ( //name of var self explanatory
-					<div key={eachEntity._id.toString()} className="card">
-						<Image
-							src="/img_avatar.png"
-							alt="Listing"
-							width={100}
-							height={100}
-							style={{ width: "100%" }}
-						/>
-						<h4>
-							<b>{eachEntity.name}</b>
-						</h4>
-						<p>Blah blah blah stuff about the product</p>
-					</div>
-				))} */}
 
-				<h4>
-					<b>NLC Synth Pad</b>
-				</h4>
-				<p>
-					Highly advanced touch synth pads. Capable of quickly creating complex
-					rhythms and melodies through user gestures.
-				</p>
-				<div className="card">
-					<Image
-						src="/img_avatar.png"
-						alt="NLCSynthPadLogo"
-						width={500}
-						height={500}
-						style={{ width: "100%" }}
-					/>
-					<h4>
-						<b>NLC Synth Pad</b>
-					</h4>
-					<p>
-						Highly advanced touch synth pads. Capable of quickly creating
-						complex rhythms and melodies through user gestures.
-					</p>
-				</div>
-				<div className="card">
-					<Image
-						src="/img_avatar.png"
-						alt="NLCSynthPadLogo"
-						width={500}
-						height={500}
-						style={{ width: "100%" }}
-					/>
-					<h4>
-						<b>NLC Synth Pad</b>
-					</h4>
-					<p>
-						Highly advanced touch synth pads. Capable of quickly creating
-						complex rhythms and melodies through user gestures.
-					</p>
-				</div>
 			</div>
 
 			<div id="contact">
