@@ -222,10 +222,11 @@ img {
 	.floatingButton:hover {
 		background-color: var(--l-bg-secondary);
 		color: var(--l-bg-primary);
+		transition: 1.5s;
 	}
 }
 
-/* PAGE RESIZING: */
+/* PAGE RESIZING: small width devices, usually for mobile view */
 /* Make a one column-layout instead of three-column layout */
 @media (max-width: 700px) {
 	ul {
@@ -261,6 +262,16 @@ img {
 		padding-right: 15%;
 		/* padding-left: 35%; */
 		/* padding-right: 20%; */
+	}
+
+	.floatingButton {
+		width: 80;
+		transition: 0.1s;
+	}
+
+	.floatingButton:hover {
+		width: 80;
+
 	}
 }
 
