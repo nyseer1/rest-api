@@ -1,10 +1,16 @@
-//sets up express to handle backend logic including middleware and routing
-import cors from "cors"; //to let client receive info from server
+/* BACKEND
+sets up express to handle backend logic (restful api)
+-initializes routes that http requests can be made on
+-receives requests
+-run the requests through middleware (aka funcs) (usually including requesting data from a database during this)
+-send http response back to client
+*/
 import dotenv from "dotenv";
+dotenv.config(); //stores env var to protect sensitive data 
+import cors from "cors"; //to let client receive info from server
 import express from "express";
-// import mongoose from "mongoose";
 import routes from "./routes/routes.js";
-dotenv.config(); //stores env variables to protect sensitive data
+
 const app = express(); //start express
 const port = 3001;
 
@@ -30,6 +36,7 @@ app.use(listingsPage, httpRequestFunctions);
 
 //for development only: (will not work on vercel) (its for local server responses)
 if (process.env.NODE_ENV === "development") {
+	// console.log('dev build, running locally');
 	//connect to server and run the function ONCE on startup
 	app.listen(port, () => {
 		console.log(`app listening on port ${port}`);
